@@ -1,0 +1,50 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual Environment
+venv/
+.venv/
+env/
+ENV/
+
+# Environment Variables
+.env
+
+# IDE
+.vscode/
+.idea/
+
+# Python cache
+.pytest_cache/
+.mypy_cache/
+
+# Streamlit
+.streamlit/
+
+# Upload folders
+uploads/*
+!uploads/.gitkeep
+
+extracted_json/*
+!extracted_json/.gitkeep
+
+qdrant_data/*
+!qdrant_data/.gitkeep
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Build files
+build/
+dist/
+*.spec
+
+# SQLite
+*.db
+*.sqlite3

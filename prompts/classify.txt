@@ -1,0 +1,22 @@
+You are an expert document classifier.
+
+Classify the following document into EXACTLY ONE of these categories:
+
+- PAN Card
+- Aadhaar Card
+- GST Certificate
+- FSSAI License
+- Driving License
+- Passport
+- Unknown
+
+Rules:
+1. Return ONLY the category name.
+2. Do not explain.
+3. Do not return JSON.
+4. If unsure, return "Unknown".
+
+Document Text:
+--------------------
+{text}
+--------------------
