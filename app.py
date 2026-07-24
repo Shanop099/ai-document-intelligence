@@ -22,7 +22,9 @@ st.set_page_config(
 st.title("📄 AI Document Intelligence")
 st.write("Upload a document and extract structured information using AI.")
 
-pipeline = DocumentPipeline()
+@st.cache_resource
+def get_pipeline():
+    return DocumentPipeline()
 
 # -----------------------------------------------------
 # Session State Initialization
@@ -88,6 +90,9 @@ if uploaded_file:
     with right:
 
         if st.button("🚀 Process Document", use_container_width=True):
+
+            with st.spinner("Loading AI models..."):
+                pipeline = get_pipeline()
 
             with st.spinner("Processing document..."):
 

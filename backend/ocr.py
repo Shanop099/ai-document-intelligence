@@ -11,12 +11,23 @@ class OCRService:
     """
 
     def __init__(self):
-        self.ocr = PaddleOCR(
-            use_doc_orientation_classify=False,
-            use_doc_unwarping=False,
-            use_textline_orientation=False,
-            lang="en"
-        )
+        # Lazy initialization
+        self.ocr = None
+
+    def _get_ocr(self):
+        """
+        Load PaddleOCR only when required.
+        """
+
+        if self.ocr is None:
+            self.ocr = PaddleOCR(
+                use_doc_orientation_classify=False,
+                use_doc_unwarping=False,
+                use_textline_orientation=False,
+                lang="en"
+            )
+
+        return self.ocr
 
     def extract(self, document: dict) -> dict:
         """
@@ -40,7 +51,9 @@ class OCRService:
 
     def _extract_image(self, image_path: str) -> str:
 
-        result = self.ocr.predict(image_path)
+        ocr = self._get_ocr()
+
+        result = ocr.predict(image_path)
 
         extracted_text = []
 
