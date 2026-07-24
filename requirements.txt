@@ -5,11 +5,10 @@ PyMuPDF
 pdfplumber
 Pillow
 
-paddleocr
-paddlepaddle
+paddlepaddle==2.6.2
+paddleocr==2.8.1
 
 sentence-transformers
-
 qdrant-client
 
 python-dotenv
